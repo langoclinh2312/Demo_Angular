@@ -1,0 +1,43 @@
+.content-form {
+  width: 50%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form .item-form {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.form .item-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: brown;
+}
+
+.form .item-form input {
+  display: block;
+  width: 96%;
+  height: 28px;
+  margin-bottom: 10px;
+  box-shadow: none;
+}
+
+.form .item-form .error {
+  display: block;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.form .button-submit {
+  width: 100%;
+  height: 32px;
+  background-color: burlywood;
+  border: none;
+  box-shadow: none;
+}

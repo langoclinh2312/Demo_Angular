@@ -1,0 +1,20 @@
+<div class="content-detail" *ngIf="receivedDatas">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Birth Day</th>
+        <th scope="col">Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of receivedDatas; let Stt = index;">
+        <th scope="row">{{ Stt }}</th>
+        <td>{{ data.value.name }}</td>
+        <td>{{ data.value.phone | PhoneFormatPipe }}</td>
+        <td>{{ data.value.birthDay | date :'dd/MM/y' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup] = "categoryForm" (ngSubmit)="submitForm()">
+    <div class="form-group row">
+      <label for="inputName" class="col-sm-2 col-form-label">name</label>
+      <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputName" placeholder="name" formControlName = "name" *ngIf="updateCatgories.length === 0; else name">
+          <ng-template #name>
+            <input type="hidden" name="id" value="{{ updateCatgories[0].id }}">
+            <input type="text" class="form-control" id="inputName" placeholder="name" formControlName = "name" value="{{ updateCatgories[0].name }}">
+          </ng-template>
+      </div>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="gridRadios1" formControlName = "status" [value]="1" [checked]="isEnableChecked()">
+            <label class="form-check-label" for="gridRadios1">
+              Enable
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="gridRadios2" formControlName = "status" [value]="2" [checked]="!isEnableChecked()">
+            <label class="form-check-label" for="gridRadios2">
+              Disable
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Craete</button>
+      </div>
+    </div>
+    {{updateCatgories | json}}
+  </form>
+</div>

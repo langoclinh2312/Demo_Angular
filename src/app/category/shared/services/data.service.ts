@@ -16,12 +16,19 @@ export class DataService {
     return this.httpClient.get<any>('http://localhost:3000/category/api/get')
   }
 
-  create(data: ICategory[]) {
-    return this.httpClient.post<any>('http://localhost:3000/category/api/create', data)
-  }
-
   getById(id: number) {
     return this.httpClient.get<any>('http://localhost:3000/category/api/get/' + id)
   }
 
+  create(data: ICategory[]) {
+    return this.httpClient.post<any>('http://localhost:3000/category/api/create', data)
+  }
+
+  update(id: number, data: ICategory[]) {
+    return this.httpClient.post<any>('http://localhost:3000/category/api/update/' + id, data)
+  }
+
+  delete(id: number) {
+    return this.httpClient.get<any>('http://localhost:3000/admin/category/api/remove/' + id)
+  }
 }

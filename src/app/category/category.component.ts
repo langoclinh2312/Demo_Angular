@@ -7,7 +7,7 @@ import { ICategory } from './shared/interface/category';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  currenCatgories: ICategory[] = []
+  currencatgories: ICategory[] = []
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class CategoryComponent implements OnInit {
   }
 
   getDataChild(event: ICategory[]) {
-    this.currenCatgories = event
+    this.currencatgories = event
   }
 }

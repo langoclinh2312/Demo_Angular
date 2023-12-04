@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../shared/services/data.service';
 import { ICategory } from '../shared/interface/category';
 
@@ -8,26 +8,23 @@ import { ICategory } from '../shared/interface/category';
   styleUrls: ['./category-table.component.css']
 })
 export class CategoryTableComponent implements OnInit {
-  catgories: ICategory[] = []
-  @Output() childEvent = new EventEmitter<ICategory[]>();
+  @Input() catgories : ICategory[] = []
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getAllDatable();
+  }
+
+  getAllDatable() {
     this.dataService.getAll().subscribe((e) => {
       this.catgories = e.data;
     });
   }
 
-  updateDataTable() {
-    this.dataService.getAll().subscribe((e) => {
-      this.catgories = e.data;
-    });
-  }
-
-  getDataRow(id: number) {
-    this.dataService.getById(id).subscribe((e) => {
-      this.childEvent.emit(e.data);
+  deleteCategory(id: number) {
+    this.dataService.delete(id).subscribe((e) => {
+      this.getAllDatable();
     });
   }
 }

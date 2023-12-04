@@ -1,5 +1,5 @@
 <div class="container">
-  <button type="button" class="btn btn-primary" (click)="updateDataTable()">update data</button>
+  <button type="button" class="btn btn-primary" (click)="getAllDatable()">update data</button>
   <table class="table table-dark">
     <thead>
       <tr>
@@ -16,8 +16,8 @@
         <td *ngIf="data.status === 1; else status">Enanle</td>
         <ng-template #status><td>Disable</td></ng-template>
         <td>
-          <button type="button" (click)="getDataRow(data.id)" class="btn btn-warning">Update</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-warning">Update</button>
+          <button type="button" class="btn btn-danger" (click)="deleteCategory(data.id)">Delete</button>
         </td>
       </tr>
     </tbody>
